@@ -80,9 +80,9 @@ public sealed class MainForm : Form
             if(demo) { login.Text="didyk@example.test";password.Text="TestTrade2026!"; signIn.PerformClick(); }
             if(capture) BeginInvoke(() => {
                 var dir=Path.Combine(AppContext.BaseDirectory,"captures");Directory.CreateDirectory(dir);
-                Capture(Path.Combine(dir,"login.png"));
-                tabs.SelectedIndex=2; Calculate(); Capture(Path.Combine(dir,"sale.png"));
-                tabs.SelectedIndex=3; refresh.PerformClick(); Capture(Path.Combine(dir,"report.png"));
+                RenderWindow(Path.Combine(dir,"login.png"));
+                tabs.SelectedIndex=2; Calculate(); RenderWindow(Path.Combine(dir,"sale.png"));
+                tabs.SelectedIndex=3; refresh.PerformClick(); RenderWindow(Path.Combine(dir,"report.png"));
                 Close();
             });
         };
@@ -119,5 +119,5 @@ public sealed class MainForm : Form
     }
     void RequireLogin() { if(!authenticated) throw new ArgumentException("Сначала выполните вход."); }
     void Run(Action action) { try{action();} catch(Exception e){ MessageBox.Show(e.Message,"Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Warning); } }
-    void Capture(string file) { Refresh();using var image=new Bitmap(Width,Height);DrawToBitmap(image,new Rectangle(0,0,Width,Height));image.Save(file); }
+    void RenderWindow(string file) { Refresh();using var image=new Bitmap(Width,Height);DrawToBitmap(image,new Rectangle(0,0,Width,Height));image.Save(file); }
 }
