@@ -81,6 +81,7 @@ public sealed class MainForm : Form
             if(capture) BeginInvoke(() => {
                 var dir=Path.Combine(AppContext.BaseDirectory,"captures");Directory.CreateDirectory(dir);
                 RenderWindow(Path.Combine(dir,"login.png"));
+                tabs.SelectedIndex=1; RenderWindow(Path.Combine(dir,"registration.png"));
                 tabs.SelectedIndex=2; Calculate(); RenderWindow(Path.Combine(dir,"sale.png"));
                 tabs.SelectedIndex=3; refresh.PerformClick(); RenderWindow(Path.Combine(dir,"report.png"));
                 Close();

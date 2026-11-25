@@ -38,6 +38,7 @@ public static class SalesCalculator
         var discount = Money.Round(subtotal * rate / 100);
         var totals = new SaleTotals(quantity, subtotal, rate, discount, subtotal - discount);
         Debug.Assert(totals.Total >= 0 && totals.Total + totals.Discount == totals.Subtotal);
+        Trace.WriteLine($"Рассчитана сделка: {totals.Total} руб.");
         DebugPrint.PrintObject(totals, "SaleTotals");
         return totals;
     }

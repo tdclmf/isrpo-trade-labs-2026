@@ -13,7 +13,7 @@ internal static class Program
             using var db = new TradeContext();
             db.Initialize();
             if (args.Contains("--schema")) { Console.WriteLine(db.Database.GenerateCreateScript()); return 0; }
-            if (args.Contains("--self-test")) { SelfTest.Run(db); return 0; }
+            if (args.Contains("--self-test") || Environment.GetEnvironmentVariable("TRADELAB_DEBUG_TEST") == "1") { SelfTest.Run(db); return 0; }
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm(db, args.Contains("--demo"), args.Contains("--capture")));
             return 0;

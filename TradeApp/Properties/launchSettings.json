@@ -1,0 +1,6 @@
+{
+  "profiles": {
+    "TradeApp": { "commandName": "Project" },
+    "Проверка интеграции": { "commandName": "Project", "commandLineArgs": "--self-test" }
+  }
+}
