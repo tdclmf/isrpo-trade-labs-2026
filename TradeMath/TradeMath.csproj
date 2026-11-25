@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Didyk.Gleb.TradeMath.20261125</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Дидык Глеб Николаевич</Authors>
+    <Description>Расчёт оптовых и розничных продаж и скидок</Description>
+  </PropertyGroup>
+</Project>
