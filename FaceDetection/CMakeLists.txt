@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.20)
+project(FaceDetection LANGUAGES CXX)
+find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs objdetect highgui)
+add_executable(face_detection main.cpp)
+target_include_directories(face_detection PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(face_detection PRIVATE ${OpenCV_LIBS})
+target_compile_features(face_detection PRIVATE cxx_std_17)

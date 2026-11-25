@@ -1,0 +1,3 @@
+add_library(complex_numbers STATIC complex_numbers.cpp complex_numbers.h)
+target_include_directories(complex_numbers PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_compile_features(complex_numbers PUBLIC cxx_std_17)
