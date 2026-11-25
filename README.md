@@ -8,7 +8,7 @@
 ЛР5: ComplexNumbers (CMake), FaceDetection (OpenCV), TradeMath (NuGet) и PackageDemo.
 ЛР6: TradeApp — регистрация и авторизация, SQL Server и Entity Framework, расчёт продажи и отладка.
 
-Сборка .NET: `dotnet build TradeLabs.sln`.
+Сборка .NET: `powershell -ExecutionPolicy Bypass -File build.ps1` (сначала собирается пакет, затем решение).
 Сервер по умолчанию: `.\SQLEXPRESS`, база: `DidykTradeLabs2026`.
 Для другого сервера задайте переменную окружения `TRADELAB_CONNECTION`.
 Пароль и ответ на секретный вопрос сохраняются только в виде PBKDF2-хешей с отдельной случайной солью.
@@ -16,7 +16,10 @@
 Пакет собирается командой `dotnet pack TradeMath -c Release -o packages`.
 PackageDemo подключает пакет из локального источника `packages` и запускает проверки.
 Для публикации на nuget.org требуется API-ключ владельца аккаунта.
+После локальной установки переменной `NUGET_API_KEY` запустите `publish-nuget.ps1`. Публикация на nuget.org при подготовке работы не выполнена.
 
 OpenCV 4.11.0 собирается из исходников, минимальный набор модулей: core, imgproc, imgcodecs, objdetect, highgui.
 Передайте `OpenCV_DIR` в CMake проекта FaceDetection.
+Сборка C++: `build-cpp.ps1 -OpenCV_DIR <путь к OpenCVConfig.cmake>`; передайте папку, содержащую файл, а не сам файл.
+Используется статическая сборка OpenCV и среда выполнения /MT.
 
