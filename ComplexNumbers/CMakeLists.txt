@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(ComplexNumbers LANGUAGES CXX)
+add_subdirectory(sample_lib)
+add_subdirectory(sample_program)
+enable_testing()
+add_test(NAME complex_operations COMMAND complex_demo)
